@@ -1,13 +1,13 @@
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { INestApplication } from '@nestjs/common';
-import { constants } from './config/config';
+import { appConstants } from './config/constants.config';
 
 export const initSwagger = (app: INestApplication) => {
   const swaggerConfig = new DocumentBuilder()
-    .setTitle(constants.projectName)
+    .setTitle(appConstants.projectName)
     .addBearerAuth()
     .setDescription('Esta es una API Creada con NestJS...')
-    // .addTag('factset')
+    // .addTag('Tag')
     .build();
   const document = SwaggerModule.createDocument(app, swaggerConfig);
   SwaggerModule.setup('/docs', app, document);
